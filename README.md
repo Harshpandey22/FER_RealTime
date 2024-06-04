@@ -1,2 +1,2 @@
-# FER_RealTime
-Deployment of Real Time Face Emotion Recognition 
+# Real Time Face Emotion Detection Application 😠🤮😨😀😐😔😮
+ Real Time Face Emotion Detection Application 😠🤮😨😀😐😔😮
