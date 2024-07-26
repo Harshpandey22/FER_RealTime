@@ -23,9 +23,6 @@ except Exception as e:
     st.write(f"Error loading cascade classifiers: {e}")
 
 class VideoTransformer(VideoTransformerBase):
-    def __init__(self):
-        self._initialized = False
-
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -178,7 +175,7 @@ def main():
         st.write("1. Click Start to open your camera and give permission for prediction.")
         st.write("2. This will predict your emotion.")
         st.write("3. When you're done, click Stop to end.")
-        webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
+        webrtc_streamer(key="example", video_processor_factory=VideoTransformer, media_stream_constraints={"video": True})
 
     # Upload Image for Emotion Detection
     elif choice == "Image Emotion Detection":
