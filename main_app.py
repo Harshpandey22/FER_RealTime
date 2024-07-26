@@ -139,7 +139,7 @@ def main():
         st.markdown("""
         <div class="centered-animation">
         """, unsafe_allow_html=True)
-        lottie_file = "C:/Users/harsh/Downloads/Animation - 1721976268168.json"  # Update with your local Lottie file path
+        lottie_file = "Animation - 1721976268168.json"  # Update with your local Lottie file path
         lottie_json = load_lottie_file(lottie_file)
         if (lottie_json):
             st_lottie(lottie_json, speed=1, width=700, height=300, key="lottie_animation")
