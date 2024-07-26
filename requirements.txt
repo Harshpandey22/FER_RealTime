@@ -1,5 +1,5 @@
 streamlit==1.17.0
-streamlit-webrtc==0.38.0
+streamlit-webrtc==0.43.3
 streamlit-lottie==0.0.2
 numpy==1.21.6
 opencv-python-headless==4.5.3.56
