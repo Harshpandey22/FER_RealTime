@@ -99,9 +99,9 @@ def load_lottie_file(filepath: str):
         return json.load(f)
 
 def main():
-    st.set_page_config(page_title="Face Emotion Detection", page_icon="😃", layout="centered")
+    st.set_page_config(page_title="Face Emotion Detection", page_icon="👤", layout="centered")
 
-    st.title("Welcome to Face Emotion Detection")
+    st.title("Face Emotion Detection")
 
     # Define pages
     pages = {
