@@ -113,56 +113,55 @@ def main():
 
     choice = st.sidebar.selectbox("Select Options", list(pages.keys()))
 
-    # CSS for homepage
-    st.markdown("""
-    <style>
-    .centered-animation {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .content-box {
-        background: linear-gradient(to top left, #1e130c, #9a8478);
-        padding: 20px;
-        margin: 10px 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        color: #ffffff;
-        font-weight: bold;
-        font-style: italic;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
     # Homepage
     if choice == "Home":
         st.markdown("""
-        <div class="centered-animation">
-        """, unsafe_allow_html=True)
-        lottie_file = "Animation - 1721976268168.json"  # Update with your local Lottie file path
-        lottie_json = load_lottie_file(lottie_file)
-        if (lottie_json):
-            st_lottie(lottie_json, speed=1, width=700, height=300, key="lottie_animation")
-        st.markdown("</div>", unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="content-box">
-        <ol>
-            <li>If you want to detect emotions in real time using your webcam, select "Live Face Emotion Detection" from the side menu.</li>
-            <li>If you have an image and want to detect emotions in it, select "Upload Image for Emotion Detection" from the side menu.</li>
-            <li>Recognizing facial emotions is essential for enhancing communication during online classes, meetings, and virtual interactions.</li>
-            <li>This tool can help analyze and improve cognitive engagement by detecting emotions.</li>
-            <li>Emotion recognition can provide valuable insights for research purposes during virtual classes or meetings.</li>
-        </ol>
-        </div>
+        <style>
+        .centered-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        </style>
         """, unsafe_allow_html=True)
 
-        # Add a welcoming pop-up
-        st.markdown("""
-        <script>
-        alert("Welcome to the Face Emotion Detection app! Get ready to analyze and enhance cognitive engagement.");
-        </script>
-        """, unsafe_allow_html=True)
+        # st.markdown("""
+        # <div class="centered-animation">
+        # """, unsafe_allow_html=True)
+        # lottie_file = "Animation - 1721976268168.json"  # Update with your local Lottie file path
+        # lottie_json = load_lottie_file(lottie_file)
+        # if lottie_json:
+        #     st_lottie(lottie_json, speed=1, width=700, height=300, key="lottie_animation")
+        # st.markdown("</div>", unsafe_allow_html=True)
+
+        left_column, right_column = st.columns(2)
+
+        with left_column:
+            st.markdown("", unsafe_allow_html=True)
+            lottie_file = "Animation - 1721976268168.json"  # Update with your local Lottie file path
+            lottie_json = load_lottie_file(lottie_file)
+            if lottie_json:
+                st_lottie(lottie_json, speed=1, width=300, height=300, key="lottie_animation")
+            st.markdown("",unsafe_allow_html=True)
+
+            
+
+        with right_column:
+            st.markdown("""
+            ### 🎯 **Instructions**
+            1. Use the sidebar to navigate between real-time detection and image upload.
+            2. For webcam detection, click Start to activate your camera.
+            3. For image upload, choose an image file in JPEG format.
+            4. View results and visualized charts for detected emotions.
+            """)
+            
+        st.markdown("#### 🤖 Support:")
+        st.write("""
+            For any assistance, you can contact:
+            - Email: harshpandey2289@gmail.com
+            - Phone No: 8874328862
+            """)
 
     # Live Face Emotion Detection
     elif choice == "Live Emotion Detection":
@@ -193,14 +192,21 @@ def main():
 
     # About
     elif choice == "About":
-        st.subheader("About this app")
-        st.markdown("""
-        <div style="background-color:#36454F;padding:30px; color:white;">
-        <h4>This app predicts facial emotion using a Convolutional Neural Network, built with Keras and TensorFlow libraries.
-        Face detection is achieved through OpenCV.</h4>
-        </div>
-        """, unsafe_allow_html=True)
-
+        st.header("About Face Emotion Detection")
+        st.write("""
+        This application uses deep learning and computer vision to detect and analyze facial emotions. It provides real-time detection through webcam and can also analyze uploaded images for emotion recognition.
+        """)
+        st.write("#### Developer")
+        st.write("Harsh Pandey - harshpandey2289@gmail.com")
+        st.write("#### Technologies Used")
+        st.write("""
+        - TensorFlow
+        - Keras
+        - OpenCV
+        - Streamlit
+        - Streamlit-WeRTC
+        """)
+    
     # Footer
     st.markdown("""
     <div style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(to bottom right, #ff00cc, #333399); padding: 10px; text-align: center;">
@@ -210,10 +216,12 @@ def main():
             color: #ffffff;
             animation: heartbeat 1.5s infinite;">    
             Developed by Harsh Pandey
+            <a href="https://www.linkedin.com/in/harsh-pandey-fd21/"> LinkedIn </a>
         </p>
     </div>
     <style>@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }</style>
     """, unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     main()
