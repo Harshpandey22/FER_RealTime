@@ -1,9 +1,9 @@
 numpy
 opencv-python-headless
-keras
-tensorflow
+keras==2.12.0
+tensorflow==2.12.0
 streamlit
 streamlit-webrtc
 matplotlib
 streamlit-lottie
-protobuf
+protobuf==3.20.*
