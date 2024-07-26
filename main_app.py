@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array
 import streamlit as st
+from tensorflow.keras.preprocessing.image import img_to_array
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 import matplotlib.pyplot as plt
 import json
@@ -95,12 +95,8 @@ def plot_emotion_counts(emotion_counts):
     st.pyplot(fig)
 
 def load_lottie_file(filepath: str):
-    try:
-        with open(filepath, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        st.write(f"Error loading Lottie file: {e}")
-        return None
+    with open(filepath, "r") as f:
+        return json.load(f)
 
 def main():
     st.set_page_config(page_title="Face Emotion Detection", page_icon="😃", layout="centered")
@@ -145,7 +141,7 @@ def main():
         """, unsafe_allow_html=True)
         lottie_file = "Animation - 1721976268168.json"  # Update with your local Lottie file path
         lottie_json = load_lottie_file(lottie_file)
-        if lottie_json:
+        if (lottie_json):
             st_lottie(lottie_json, speed=1, width=700, height=300, key="lottie_animation")
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -175,7 +171,7 @@ def main():
         st.write("1. Click Start to open your camera and give permission for prediction.")
         st.write("2. This will predict your emotion.")
         st.write("3. When you're done, click Stop to end.")
-        webrtc_streamer(key="example", video_processor_factory=VideoTransformer, media_stream_constraints={"video": True})
+        webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
 
     # Upload Image for Emotion Detection
     elif choice == "Image Emotion Detection":
